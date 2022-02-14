@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Springboot 整合 webSocket 无法启动问题记录, 倚声楼">
     <meta name="description" content="Springboot 整合 webSocket 无法启动问题记录错误现象使用@Component注解后无法启动:
-12345@Component@ServerEndpoint(value = &amp;quot;/websocket/chat/&amp;#">
+@Component
+@ServerEndpoint(value = &#34;/websocket/chat/{info}&#34;, co">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,19 +20,21 @@
 
 
     <title>Springboot 整合 webSocket 无法启动问题记录 | 倚声楼</title>
-    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/favicon.png">
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/awesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/css/my.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/css/my.css">
 
-    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/jquery/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/xmvske/xmvske.github.io/rss2.xml" title="倚声楼" type="application/rss+xml">
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/rss2.xml" title="倚声楼" type="application/rss+xml">
 </head>
 
 
@@ -42,9 +45,9 @@
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
-                <a href="/xmvske/xmvske.github.io/" class="waves-effect waves-light">
+                <a href="/" class="waves-effect waves-light">
                     
-                    <img src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">倚声楼</span>
                 </a>
@@ -56,7 +59,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/xmvske/xmvske.github.io/" class="waves-effect waves-light">
+    <a href="/" class="waves-effect waves-light">
       
       <i class="fas fa-home" style="zoom: 0.6;"></i>
       
@@ -67,7 +70,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/xmvske/xmvske.github.io/tags" class="waves-effect waves-light">
+    <a href="/tags" class="waves-effect waves-light">
       
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
@@ -78,7 +81,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/xmvske/xmvske.github.io/categories" class="waves-effect waves-light">
+    <a href="/categories" class="waves-effect waves-light">
       
       <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
       
@@ -89,7 +92,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/xmvske/xmvske.github.io/archives" class="waves-effect waves-light">
+    <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
@@ -100,7 +103,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/xmvske/xmvske.github.io/about" class="waves-effect waves-light">
+    <a href="/about" class="waves-effect waves-light">
       
       <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
       
@@ -111,7 +114,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/xmvske/xmvske.github.io/contact" class="waves-effect waves-light">
+    <a href="/contact" class="waves-effect waves-light">
       
       <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
@@ -122,7 +125,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/xmvske/xmvske.github.io/friends" class="waves-effect waves-light">
+    <a href="/friends" class="waves-effect waves-light">
       
       <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
@@ -143,7 +146,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">倚声楼</div>
         <div class="logo-desc">
@@ -157,7 +160,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/xmvske/xmvske.github.io/" class="waves-effect waves-light">
+		<a href="/" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-home"></i>
 			
@@ -168,7 +171,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/xmvske/xmvske.github.io/tags" class="waves-effect waves-light">
+		<a href="/tags" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-tags"></i>
 			
@@ -179,7 +182,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/xmvske/xmvske.github.io/categories" class="waves-effect waves-light">
+		<a href="/categories" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-bookmark"></i>
 			
@@ -190,7 +193,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/xmvske/xmvske.github.io/archives" class="waves-effect waves-light">
+		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
@@ -201,7 +204,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/xmvske/xmvske.github.io/about" class="waves-effect waves-light">
+		<a href="/about" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
@@ -212,7 +215,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/xmvske/xmvske.github.io/contact" class="waves-effect waves-light">
+		<a href="/contact" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-comments"></i>
 			
@@ -223,7 +226,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/xmvske/xmvske.github.io/friends" class="waves-effect waves-light">
+		<a href="/friends" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-address-book"></i>
 			
@@ -311,7 +314,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -329,7 +332,7 @@
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/tocbot/tocbot.css">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -451,7 +454,17 @@
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    467
+                </div>
+                
 
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    2 分
+                </div>
                 
 
                 
@@ -460,13 +473,20 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="Springboot-整合-webSocket-无法启动问题记录"><a href="#Springboot-整合-webSocket-无法启动问题记录" class="headerlink" title="Springboot 整合 webSocket 无法启动问题记录"></a>Springboot 整合 webSocket 无法启动问题记录</h2><h3 id="错误现象"><a href="#错误现象" class="headerlink" title="错误现象"></a>错误现象</h3><p><strong>使用@Component注解后无法启动</strong>:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ServerEndpoint(value = &quot;/websocket/chat/&#123;info&#125;&quot;, configurator = MySpringConfigurator.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ChatWebSocketServer</span> &#123;</span><br><span class="line">		<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@ServerEndpoint</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"/websocket/chat/{info}"</span><span class="token punctuation">,</span> configurator <span class="token operator">=</span> <span class="token class-name">MySpringConfigurator</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ChatWebSocketServer</span> <span class="token punctuation">{</span>
+		<span class="token comment">//...</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><p><strong>原因1：Session包引用错误、替换成websocket下的Session</strong></p>
 <blockquote>
@@ -477,11 +497,68 @@
 <p>注：onOpen中除Session、EndpointConfig类型的参数外必须使用@PathParam注解</p>
 </blockquote>
 <p><strong>原因3：onError方法未设置Throwable参数</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@OnError</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onError</span><span class="params">(Throwable e)</span>&#123;</span><br><span class="line">	<span class="comment">// ......</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@OnError</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onError</span><span class="token punctuation">(</span><span class="token class-name">Throwable</span> e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token comment">// ......</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>关于以上问题的发生原因都可以在源码中找到，我将源码方法列在下面，标明了一些简短的注释，这里就不过多分析了，有兴趣的朋友可以看看。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> PojoPathParam[] getPathParams(Method m,</span><br><span class="line">        MethodType methodType) <span class="keyword">throws</span> DeploymentException &#123;</span><br><span class="line">    <span class="keyword">if</span> (m == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">PojoPathParam</span>[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">boolean</span> <span class="variable">foundThrowable</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">    Class&lt;?&gt;[] types = m.getParameterTypes();</span><br><span class="line">    Annotation[][] paramsAnnotations = m.getParameterAnnotations();</span><br><span class="line">    PojoPathParam[] result = <span class="keyword">new</span> <span class="title class_">PojoPathParam</span>[types.length];</span><br><span class="line">    <span class="comment">// 重点在这一段</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; types.length; i++) &#123;</span><br><span class="line">        Class&lt;?&gt; type = types[i];</span><br><span class="line">        <span class="comment">// 检查你的Session类型</span></span><br><span class="line">        <span class="keyword">if</span> (type.equals(Session.class)) &#123;</span><br><span class="line">            result[i] = <span class="keyword">new</span> <span class="title class_">PojoPathParam</span>(type, <span class="literal">null</span>);</span><br><span class="line">        <span class="comment">// 检查EndpointConfig类型</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (methodType == MethodType.ON_OPEN &amp;&amp;</span><br><span class="line">                type.equals(EndpointConfig.class)) &#123;</span><br><span class="line">            result[i] = <span class="keyword">new</span> <span class="title class_">PojoPathParam</span>(type, <span class="literal">null</span>);</span><br><span class="line">        <span class="comment">// 检查ON_ERROR是否携带Throwable参数</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (methodType == MethodType.ON_ERROR</span><br><span class="line">                &amp;&amp; type.equals(Throwable.class)) &#123;</span><br><span class="line">            foundThrowable = <span class="literal">true</span>;</span><br><span class="line">            result[i] = <span class="keyword">new</span> <span class="title class_">PojoPathParam</span>(type, <span class="literal">null</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (methodType == MethodType.ON_CLOSE &amp;&amp;</span><br><span class="line">                type.equals(CloseReason.class)) &#123;</span><br><span class="line">            result[i] = <span class="keyword">new</span> <span class="title class_">PojoPathParam</span>(type, <span class="literal">null</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 如果参数不满足上述类型，则检查是否标有@PathParam注解</span></span><br><span class="line">            Annotation[] paramAnnotations = paramsAnnotations[i];</span><br><span class="line">            <span class="keyword">for</span> (Annotation paramAnnotation : paramAnnotations) &#123;</span><br><span class="line">                <span class="keyword">if</span> (paramAnnotation.annotationType().equals(</span><br><span class="line">                        PathParam.class)) &#123;</span><br><span class="line">                    result[i] = <span class="keyword">new</span> <span class="title class_">PojoPathParam</span>(type,</span><br><span class="line">                            ((PathParam) paramAnnotation).value());</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 不允许使用没有注解的参数</span></span><br><span class="line">            <span class="comment">// Parameters without annotations are not permitted</span></span><br><span class="line">            <span class="keyword">if</span> (result[i] == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">DeploymentException</span>(sm.getString(</span><br><span class="line">                        <span class="string">&quot;pojoMethodMapping.paramWithoutAnnotation&quot;</span>,</span><br><span class="line">                        type, m.getName(), m.getClass().getName()));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//ON_ERROR未携带Throwable参数时抛出的异常</span></span><br><span class="line">    <span class="keyword">if</span> (methodType == MethodType.ON_ERROR &amp;&amp; !foundThrowable) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">DeploymentException</span>(sm.getString(</span><br><span class="line">                <span class="string">&quot;pojoMethodMapping.onErrorNoThrowable&quot;</span>,</span><br><span class="line">                m.getName(), m.getDeclaringClass().getName()));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">PojoPathParam</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">getPathParams</span><span class="token punctuation">(</span><span class="token class-name">Method</span> m<span class="token punctuation">,</span>
+        <span class="token class-name">MethodType</span> methodType<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">DeploymentException</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>m <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">PojoPathParam</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">boolean</span> foundThrowable <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">[</span><span class="token punctuation">]</span> types <span class="token operator">=</span> m<span class="token punctuation">.</span><span class="token function">getParameterTypes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Annotation</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> paramsAnnotations <span class="token operator">=</span> m<span class="token punctuation">.</span><span class="token function">getParameterAnnotations</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">PojoPathParam</span><span class="token punctuation">[</span><span class="token punctuation">]</span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PojoPathParam</span><span class="token punctuation">[</span>types<span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment">// 重点在这一段</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> types<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> type <span class="token operator">=</span> types<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token comment">// 检查你的Session类型</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>type<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Session</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            result<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PojoPathParam</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 检查EndpointConfig类型</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>methodType <span class="token operator">==</span> <span class="token class-name">MethodType</span><span class="token punctuation">.</span>ON_OPEN <span class="token operator">&amp;&amp;</span>
+                type<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">EndpointConfig</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            result<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PojoPathParam</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 检查ON_ERROR是否携带Throwable参数</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>methodType <span class="token operator">==</span> <span class="token class-name">MethodType</span><span class="token punctuation">.</span>ON_ERROR
+                <span class="token operator">&amp;&amp;</span> type<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Throwable</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            foundThrowable <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            result<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PojoPathParam</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>methodType <span class="token operator">==</span> <span class="token class-name">MethodType</span><span class="token punctuation">.</span>ON_CLOSE <span class="token operator">&amp;&amp;</span>
+                type<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">CloseReason</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            result<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PojoPathParam</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 如果参数不满足上述类型，则检查是否标有@PathParam注解</span>
+            <span class="token class-name">Annotation</span><span class="token punctuation">[</span><span class="token punctuation">]</span> paramAnnotations <span class="token operator">=</span> paramsAnnotations<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Annotation</span> paramAnnotation <span class="token operator">:</span> paramAnnotations<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>paramAnnotation<span class="token punctuation">.</span><span class="token function">annotationType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>
+                        <span class="token class-name">PathParam</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    result<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PojoPathParam</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span>
+                            <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">PathParam</span><span class="token punctuation">)</span> paramAnnotation<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment">// 不允许使用没有注解的参数</span>
+            <span class="token comment">// Parameters without annotations are not permitted</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">DeploymentException</span><span class="token punctuation">(</span>sm<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span>
+                        <span class="token string">"pojoMethodMapping.paramWithoutAnnotation"</span><span class="token punctuation">,</span>
+                        type<span class="token punctuation">,</span> m<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> m<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">//ON_ERROR未携带Throwable参数时抛出的异常</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>methodType <span class="token operator">==</span> <span class="token class-name">MethodType</span><span class="token punctuation">.</span>ON_ERROR <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>foundThrowable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">DeploymentException</span><span class="token punctuation">(</span>sm<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span>
+                <span class="token string">"pojoMethodMapping.onErrorNoThrowable"</span><span class="token punctuation">,</span>
+                m<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> m<span class="token punctuation">.</span><span class="token function">getDeclaringClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>如果还有其他关于Springboot 整合 webSocket 启动报错的问题，欢迎在评论区说明。<br>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/a499957739/article/details/105806092?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase">Springboot2.0 集成 websocket 出现 Failed to register @ServerEndpoint class 问题.</a></p>
+<p>如果还有其他关于Springboot 整合 webSocket 启动报错的问题，欢迎在评论区说明。<br>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/a499957739/article/details/105806092?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase">Springboot2.0 集成 websocket 出现 Failed to register @ServerEndpoint class 问题.</a></p>
 
                 
             </div>
@@ -498,7 +575,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/xmvske/xmvske.github.io/about" rel="external nofollow noreferrer">阿鹊</a>
+                    <a href="/about" rel="external nofollow noreferrer">阿鹊</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -508,7 +585,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/xmvske/xmvske.github.io/xmvske/xmvske.github.io/2020/06/01/spring-boot%E6%95%B4%E5%90%88webSocket%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95/">https://github.com/xmvske/xmvske.github.io/xmvske/xmvske.github.io/2020/06/01/spring-boot%E6%95%B4%E5%90%88webSocket%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95/</a>
+                    <a href="https://xmvske.github.io/2020/06/01/spring-boot-zheng-he-websocket-bao-cuo-ji-lu/">https://xmvske.github.io/2020/06/01/spring-boot-zheng-he-websocket-bao-cuo-ji-lu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -521,7 +598,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/xmvske/xmvske.github.io/about" target="_blank">阿鹊</a>
+                    <a href="/about" target="_blank">阿鹊</a>
                     !
                 </span>
             </div>
@@ -550,12 +627,12 @@
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/share/css/share.min.css">
 <div id="article-share">
 
     
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/share/js/social-share.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -673,10 +750,10 @@
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -721,11 +798,11 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/xmvske/xmvske.github.io/2022/02/10/hello-world/">
+                <a href="/2022/02/10/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/medias/featureimages/15.jpg" class="responsive-img" alt="HOME">
+                        <img src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/medias/featureimages/15.jpg" class="responsive-img" alt="HOME">
                         
                         <span class="card-title">HOME</span>
                     </div>
@@ -758,11 +835,11 @@
                 本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/xmvske/xmvske.github.io/2020/06/01/spring-boot%E6%95%B4%E5%90%88webSocket%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95/">
+                <a href="/2020/06/01/spring-boot-zheng-he-websocket-bao-cuo-ji-lu/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/medias/featureimages/17.jpg" class="responsive-img" alt="Springboot 整合 webSocket 无法启动问题记录">
+                        <img src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/medias/featureimages/17.jpg" class="responsive-img" alt="Springboot 整合 webSocket 无法启动问题记录">
                         
                         <span class="card-title">Springboot 整合 webSocket 无法启动问题记录</span>
                     </div>
@@ -798,21 +875,21 @@
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/codeBlock/codeBlockFuction.js"></script>
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -833,7 +910,7 @@
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/tocbot/tocbot.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -918,7 +995,7 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/aplayer/APlayer.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
         
@@ -968,8 +1045,8 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/aplayer/Meting.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/aplayer/Meting.min.js"></script>
 
     
 
@@ -980,7 +1057,7 @@
             
                 <span id="year">2019-2022</span>
             
-            <a href="/xmvske/xmvske.github.io/about" target="_blank">阿鹊</a>
+            <a href="/about" target="_blank">阿鹊</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -1014,15 +1091,15 @@
     </a>
 
 
+<!--  -->
+<!--     <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50"> -->
+<!--         <i class="fas fa-envelope-open"></i> -->
+<!--     </a> -->
+<!--  -->
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
+<!--  -->
 
-
-
-
-
+<!--  -->
 
 
     <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
@@ -1035,7 +1112,7 @@
 
 
 
-    <a href="/xmvske/xmvske.github.io/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
 
@@ -1146,7 +1223,7 @@ $(function () {
         });
     };
 
-    searchFunc('/xmvske/xmvske.github.io/search.xml', 'searchInput', 'searchResult');
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1158,12 +1235,12 @@ $(function () {
 </div>
 
 
-    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/materialize/materialize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/aos/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/js/matery.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/js/matery.js"></script>
 
     
 
@@ -1177,7 +1254,7 @@ $(function () {
 
      
         <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/others/TencentCaptcha.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/others/TencentCaptcha.js"></script>
         <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
     
 
@@ -1200,10 +1277,10 @@ $(function () {
 </script>
 
     
-    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/others/clicklove.js" async="async"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/others/clicklove.js" async="async"></script>
     
     
-    <script async src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
@@ -1219,7 +1296,7 @@ $(function () {
     
 
     
-    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/xmvske/xmvske.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xmvske/xmvske.github.io/libs/instantpage/instantpage.js" type="module"></script>
     
 
 </body>
