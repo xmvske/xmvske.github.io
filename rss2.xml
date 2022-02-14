@@ -4,9 +4,9 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>倚声楼</title>
-    <link>http://example.com/</link>
+    <link>https://github.com/xmvske/xmvske.github.io/</link>
     
-    <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://github.com/xmvske/xmvske.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>欢迎！这里是阿鹊的个人博客</description>
     <pubDate>Fri, 11 Feb 2022 10:39:01 GMT</pubDate>
@@ -14,8 +14,8 @@
     
     <item>
       <title>HOME</title>
-      <link>http://example.com/2022/02/10/hello-world/</link>
-      <guid>http://example.com/2022/02/10/hello-world/</guid>
+      <link>https://github.com/xmvske/xmvske.github.io/2022/02/10/hello-world/</link>
+      <guid>https://github.com/xmvske/xmvske.github.io/2022/02/10/hello-world/</guid>
       <pubDate>Thu, 10 Feb 2022 10:34:53 GMT</pubDate>
       
         
@@ -31,14 +31,14 @@
       
       
       
-      <comments>http://example.com/2022/02/10/hello-world/#disqus_thread</comments>
+      <comments>https://github.com/xmvske/xmvske.github.io/2022/02/10/hello-world/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Springboot 整合 webSocket 无法启动问题记录</title>
-      <link>http://example.com/2020/06/01/spring-boot%E6%95%B4%E5%90%88webSocket%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95/</link>
-      <guid>http://example.com/2020/06/01/spring-boot%E6%95%B4%E5%90%88webSocket%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95/</guid>
+      <link>https://github.com/xmvske/xmvske.github.io/2020/06/01/spring-boot%E6%95%B4%E5%90%88webSocket%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95/</link>
+      <guid>https://github.com/xmvske/xmvske.github.io/2020/06/01/spring-boot%E6%95%B4%E5%90%88webSocket%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95/</guid>
       <pubDate>Mon, 01 Jun 2020 00:00:00 GMT</pubDate>
       
         
@@ -53,7 +53,7 @@
       
       
       
-      <comments>http://example.com/2020/06/01/spring-boot%E6%95%B4%E5%90%88webSocket%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95/#disqus_thread</comments>
+      <comments>https://github.com/xmvske/xmvske.github.io/2020/06/01/spring-boot%E6%95%B4%E5%90%88webSocket%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95/#disqus_thread</comments>
       
     </item>
     
